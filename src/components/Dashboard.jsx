@@ -2,11 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 
-const Dashboard = () => {
+const Dashboard = ({ pokemonCollection }) => {
   return (
     <DashboardLayout>
       <DashboardHeader>Like Auctions</DashboardHeader>
-      <PokemonCardItem></PokemonCardItem>
+      <PokemonCardItem>
+        {pokemonCollection.map((pokemon) => {
+          return <PokemonCard key={pokemon.id} data={pokemon} btnName="삭제" />;
+        })}
+      </PokemonCardItem>
     </DashboardLayout>
   );
 };
@@ -27,6 +31,5 @@ const DashboardHeader = styled.div`
 const PokemonCardItem = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
+  gap: 25px;
 `;

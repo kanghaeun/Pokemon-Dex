@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-export const CustomBtn = (props) => {
-  return <CustonBtn>{props.children}</CustonBtn>;
+export const CustomBtn = ({ children, onClick }) => {
+  return <CustonBtn onClick={onClick}>{children}</CustonBtn>;
 };
 
 const CustonBtn = styled.button`

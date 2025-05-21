@@ -1,15 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
-import { pokemonData } from "../data/MOCK_DATA";
 
-const PokemonList = () => {
+const PokemonList = ({ data, addToMyCollection }) => {
   return (
     <PokemonListLayout>
       <PokemonListHeader>Today's Picks</PokemonListHeader>
       <PokemonCardItem>
-        {pokemonData.map((pokemon) => {
-          return <PokemonCard key={pokemon.id} data={pokemon} btnName="추가" />;
+        {data.map((pokemon) => {
+          return (
+            <PokemonCard
+              key={pokemon.id}
+              data={pokemon}
+              btnName="추가"
+              addToMyCollection={addToMyCollection}
+            />
+          );
         })}
       </PokemonCardItem>
     </PokemonListLayout>

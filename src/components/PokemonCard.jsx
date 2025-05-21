@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { CustomBtn } from "./CustomBtn";
 
-const PokemonCard = ({ data, btnName }) => {
+const PokemonCard = ({ data, btnName, addToMyCollection }) => {
   return (
     <PokemonCardLayout>
       <PokemonImgWrapper>
@@ -10,7 +10,13 @@ const PokemonCard = ({ data, btnName }) => {
       </PokemonImgWrapper>
       <PokemonCardHeader>
         <PokemonName>{data.name}</PokemonName>
-        <CustomBtn>{btnName}</CustomBtn>
+        <CustomBtn
+          onClick={() => {
+            addToMyCollection(data.id);
+          }}
+        >
+          {btnName}
+        </CustomBtn>
       </PokemonCardHeader>
 
       <PokemonType>타입 : {data.type}</PokemonType>
