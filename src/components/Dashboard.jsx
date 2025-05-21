@@ -2,13 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 
-const Dashboard = ({ pokemonCollection }) => {
+const Dashboard = ({ pokemonCollection, deleteToMyCollection }) => {
   return (
     <DashboardLayout>
       <DashboardHeader>Like Auctions</DashboardHeader>
       <PokemonCardItem>
         {pokemonCollection.map((pokemon) => {
-          return <PokemonCard key={pokemon.id} data={pokemon} btnName="삭제" />;
+          return (
+            <PokemonCard
+              key={pokemon.id}
+              data={pokemon}
+              btnName="삭제"
+              deleteToMyCollection={deleteToMyCollection}
+            />
+          );
         })}
       </PokemonCardItem>
     </DashboardLayout>

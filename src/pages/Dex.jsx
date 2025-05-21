@@ -12,9 +12,19 @@ const Dex = () => {
     setPokemonCollection([...pokemonCollection, ...newCollection]);
   };
 
+  const deleteToMyCollection = (id) => {
+    const newCollection = pokemonCollection.filter(
+      (pokemon) => id !== pokemon.id
+    );
+    setPokemonCollection([...newCollection]);
+  };
+
   return (
     <DexLayput>
-      <Dashboard pokemonCollection={pokemonCollection} />
+      <Dashboard
+        pokemonCollection={pokemonCollection}
+        deleteToMyCollection={deleteToMyCollection}
+      />
       <PokemonList data={pokemonData} addToMyCollection={addToMyCollection} />
     </DexLayput>
   );

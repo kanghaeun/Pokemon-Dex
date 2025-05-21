@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { CustomBtn } from "./CustomBtn";
 
-const PokemonCard = ({ data, btnName, addToMyCollection }) => {
+const PokemonCard = ({
+  data,
+  btnName,
+  addToMyCollection,
+  deleteToMyCollection,
+}) => {
   return (
     <PokemonCardLayout>
       <PokemonImgWrapper>
@@ -10,13 +15,23 @@ const PokemonCard = ({ data, btnName, addToMyCollection }) => {
       </PokemonImgWrapper>
       <PokemonCardHeader>
         <PokemonName>{data.name}</PokemonName>
-        <CustomBtn
-          onClick={() => {
-            addToMyCollection(data.id);
-          }}
-        >
-          {btnName}
-        </CustomBtn>
+        {btnName === "추가" ? (
+          <CustomBtn
+            onClick={() => {
+              addToMyCollection(data.id);
+            }}
+          >
+            {btnName}
+          </CustomBtn>
+        ) : (
+          <CustomBtn
+            onClick={() => {
+              deleteToMyCollection(data.id);
+            }}
+          >
+            {btnName}
+          </CustomBtn>
+        )}
       </PokemonCardHeader>
 
       <PokemonType>타입 : {data.type}</PokemonType>
