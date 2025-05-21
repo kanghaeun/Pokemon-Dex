@@ -20,6 +20,7 @@ export default Dashboard;
 const DashboardLayout = styled.div`
   border: 1px solid;
   height: 300px;
+  margin-bottom: 120px;
 `;
 const DashboardHeader = styled.div`
   color: white;

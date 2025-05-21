@@ -24,5 +24,5 @@ export default Dex;
 
 const DexLayput = styled.div`
   background-color: #141420;
-  padding: 25px;
+  padding: 42px;
 `;

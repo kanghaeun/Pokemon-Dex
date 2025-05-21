@@ -29,8 +29,7 @@ const PokemonListLayout = styled.div``;
 const PokemonCardItem = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
+  gap: 25px;
 `;
 
 const PokemonListHeader = styled.div`
