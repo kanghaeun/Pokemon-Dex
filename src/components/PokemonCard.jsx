@@ -12,7 +12,7 @@ const PokemonCard = ({
   const navigate = useNavigate();
 
   const goToDetail = () => {
-    navigate(`/detail?id=${data.id}`);
+    navigate(`/detail?id=${data.id}`, { state: { data } });
   };
 
   return (
