@@ -10,6 +10,7 @@ const CustonBtn = styled.button`
   border-radius: 10px;
   border: none;
   color: white;
-  width: 45px;
-  height: 25px;
+  padding: 5px 11px;
+  width: auto;
+  height: auto;
 `;

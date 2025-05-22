@@ -1,9 +1,12 @@
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { CustomBtn } from "../components/CustomBtn";
 
 const Detail = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const data = location.state?.data;
+  console.log(data);
 
   const query = new URLSearchParams(location.search);
   const id = query.get("id");
@@ -16,6 +19,13 @@ const Detail = () => {
         타입 : {data.types[0]}, {data.types[1]}
       </PokemonType>
       <PokemonDescription>{data.description}</PokemonDescription>
+      <CustomBtn
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        뒤로 가기
+      </CustomBtn>
     </DetailLayout>
   );
 };
