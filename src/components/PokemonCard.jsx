@@ -53,15 +53,18 @@ const PokemonCard = ({
 export default PokemonCard;
 
 const PokemonCardLayout = styled.div`
+  flex: 1 1 200px;
+  max-width: 220px;
   background-color: #353443;
-  width: 220px;
-  height: auto;
   border-radius: 15px;
   padding: 15px;
   display: flex;
-  gap: 12px;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 `;
 
 const PokemonImgWrapper = styled.div`
@@ -78,6 +81,11 @@ const PokemonCardHeader = styled.div`
 const PokemonImg = styled.img`
   width: 200px;
   height: 200px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 const PokemonName = styled.div`
   color: white;

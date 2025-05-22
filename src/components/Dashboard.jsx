@@ -38,5 +38,5 @@ const DashboardHeader = styled.div`
 const PokemonCardItem = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 20px;
 `;
