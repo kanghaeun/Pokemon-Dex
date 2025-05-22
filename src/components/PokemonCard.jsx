@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { CustomBtn } from "./CustomBtn";
 
 const PokemonCard = ({
@@ -8,8 +9,14 @@ const PokemonCard = ({
   addToMyCollection,
   deleteToMyCollection,
 }) => {
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`/detail?id=${data.id}`);
+  };
+
   return (
-    <PokemonCardLayout>
+    <PokemonCardLayout onClick={goToDetail}>
       <PokemonImgWrapper>
         <PokemonImg src={data.img_url} alt={data.korean_name} />
       </PokemonImgWrapper>
