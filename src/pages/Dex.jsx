@@ -14,6 +14,12 @@ const Dex = () => {
         return prevCollection;
       }
 
+      const isDuplicate = prevCollection.some((pokemon) => pokemon.id === id);
+      if (isDuplicate) {
+        alert("이미 선택된 포켓몬입니다.");
+        return prevCollection;
+      }
+
       const newCollection = MOCK_DATA.filter((pokemon) => id === pokemon.id);
       return [...prevCollection, ...newCollection];
     });
