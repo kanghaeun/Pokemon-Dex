@@ -11,10 +11,10 @@ const PokemonCard = ({
   return (
     <PokemonCardLayout>
       <PokemonImgWrapper>
-        <PokemonImg src={data.image} alt={data.name} />
+        <PokemonImg src={data.img_url} alt={data.korean_name} />
       </PokemonImgWrapper>
       <PokemonCardHeader>
-        <PokemonName>{data.name}</PokemonName>
+        <PokemonName>{data.korean_name}</PokemonName>
         {btnName === "추가" ? (
           <CustomBtn
             onClick={() => {
@@ -34,7 +34,9 @@ const PokemonCard = ({
         )}
       </PokemonCardHeader>
 
-      <PokemonType>타입 : {data.type}</PokemonType>
+      <PokemonType>
+        타입 : {data.types[0]}, {data.types[1]}
+      </PokemonType>
     </PokemonCardLayout>
   );
 };

@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
-import { pokemonData } from "../data/MOCK_DATA";
+import MOCK_DATA from "../data/mock";
 
 const Dex = () => {
   const [pokemonCollection, setPokemonCollection] = useState([]);
 
   const addToMyCollection = (id) => {
-    const newCollection = pokemonData.filter((pokemon) => id === pokemon.id);
+    const newCollection = MOCK_DATA.filter((pokemon) => id === pokemon.id);
     setPokemonCollection([...pokemonCollection, ...newCollection]);
   };
 
@@ -25,7 +25,7 @@ const Dex = () => {
         pokemonCollection={pokemonCollection}
         deleteToMyCollection={deleteToMyCollection}
       />
-      <PokemonList data={pokemonData} addToMyCollection={addToMyCollection} />
+      <PokemonList data={MOCK_DATA} addToMyCollection={addToMyCollection} />
     </DexLayput>
   );
 };
