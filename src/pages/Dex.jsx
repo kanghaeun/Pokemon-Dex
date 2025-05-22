@@ -8,8 +8,15 @@ const Dex = () => {
   const [pokemonCollection, setPokemonCollection] = useState([]);
 
   const addToMyCollection = (id) => {
-    const newCollection = MOCK_DATA.filter((pokemon) => id === pokemon.id);
-    setPokemonCollection([...pokemonCollection, ...newCollection]);
+    setPokemonCollection((prevCollection) => {
+      if (prevCollection.length >= 6) {
+        alert("더 이상 선택할 수 없습니다.");
+        return prevCollection;
+      }
+
+      const newCollection = MOCK_DATA.filter((pokemon) => id === pokemon.id);
+      return [...prevCollection, ...newCollection];
+    });
   };
 
   const deleteToMyCollection = (id) => {
