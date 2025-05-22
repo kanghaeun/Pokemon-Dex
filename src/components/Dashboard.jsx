@@ -25,7 +25,7 @@ const Dashboard = ({ pokemonCollection, deleteToMyCollection }) => {
 export default Dashboard;
 
 const DashboardLayout = styled.div`
-  height: 300px;
+  height: auto;
   margin-bottom: 120px;
 `;
 const DashboardHeader = styled.div`
