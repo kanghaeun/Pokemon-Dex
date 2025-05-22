@@ -24,7 +24,8 @@ const PokemonCard = ({
         <PokemonName>{data.korean_name}</PokemonName>
         {btnName === "추가" ? (
           <CustomBtn
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               addToMyCollection(data.id);
             }}
           >
@@ -32,7 +33,8 @@ const PokemonCard = ({
           </CustomBtn>
         ) : (
           <CustomBtn
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               deleteToMyCollection(data.id);
             }}
           >

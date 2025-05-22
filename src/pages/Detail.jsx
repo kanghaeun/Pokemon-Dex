@@ -6,7 +6,6 @@ const Detail = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const data = location.state?.data;
-  console.log(data);
 
   const query = new URLSearchParams(location.search);
   const id = query.get("id");
