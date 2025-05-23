@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CustomBtn } from "../components/CustomBtn";
+import { useContext } from "react";
+import { PokemonContext } from "../context/PokemonContext";
 
 const Detail = () => {
+  const { addToMyCollection, pokemonCollection } = useContext(PokemonContext);
   const navigate = useNavigate();
   const location = useLocation();
   const data = location.state?.data;
-
   const query = new URLSearchParams(location.search);
   const id = query.get("id");
 
@@ -24,6 +26,13 @@ const Detail = () => {
         }}
       >
         뒤로 가기
+      </CustomBtn>
+      <CustomBtn
+        onClick={() => {
+          addToMyCollection(data.id);
+        }}
+      >
+        추가
       </CustomBtn>
     </DetailLayout>
   );

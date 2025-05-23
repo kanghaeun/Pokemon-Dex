@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { CustomBtn } from "./CustomBtn";
+import { PokemonContext } from "../context/PokemonContext";
 
-const PokemonCard = ({
-  data,
-  btnName,
-  addToMyCollection,
-  deleteToMyCollection,
-}) => {
+const PokemonCard = ({ data, btnName }) => {
+  const { addToMyCollection, deleteToMyCollection } =
+    useContext(PokemonContext);
+
   const navigate = useNavigate();
 
   const goToDetail = () => {

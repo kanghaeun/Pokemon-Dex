@@ -1,21 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import { PokemonContext } from "../context/PokemonContext";
+const Dashboard = () => {
+  const { pokemonCollection } = useContext(PokemonContext);
 
-const Dashboard = ({ pokemonCollection, deleteToMyCollection }) => {
   return (
     <DashboardLayout>
       <DashboardHeader>Like Auctions</DashboardHeader>
       <PokemonCardItem>
         {pokemonCollection.map((pokemon) => {
-          return (
-            <PokemonCard
-              key={pokemon.id}
-              data={pokemon}
-              btnName="삭제"
-              deleteToMyCollection={deleteToMyCollection}
-            />
-          );
+          return <PokemonCard key={pokemon.id} data={pokemon} btnName="삭제" />;
         })}
       </PokemonCardItem>
     </DashboardLayout>
