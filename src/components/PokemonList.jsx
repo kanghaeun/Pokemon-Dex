@@ -1,11 +1,8 @@
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
-import { useContext } from "react";
-import { PokemonContext } from "../context/PokemonContext";
+import MOCK_DATA from "../data/mock";
 
 const PokemonList = () => {
-  const { MOCK_DATA } = useContext(PokemonContext);
-
   return (
     <PokemonListLayout>
       <PokemonListHeader>Today's Picks</PokemonListHeader>

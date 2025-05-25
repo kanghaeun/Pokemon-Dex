@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import PokemonCard from "./PokemonCard";
-import { PokemonContext } from "../context/PokemonContext";
+
 const Dashboard = () => {
-  const { pokemonCollection } = useContext(PokemonContext);
+  const pokemonStore = useSelector((state) => state.pokemon.pokemonCollection);
 
   return (
     <DashboardLayout>
       <DashboardHeader>Like Auctions</DashboardHeader>
       <PokemonCardItem>
-        {pokemonCollection.map((pokemon) => {
+        {pokemonStore.map((pokemon) => {
           return <PokemonCard key={pokemon.id} data={pokemon} btnName="삭제" />;
         })}
       </PokemonCardItem>

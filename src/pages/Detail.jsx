@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { CustomBtn } from "../components/CustomBtn";
-import { useContext } from "react";
-import { PokemonContext } from "../context/PokemonContext";
+import { addToMyCollection } from "../redux/slices/pokemonSlice";
 
 const Detail = () => {
-  const { addToMyCollection, pokemonCollection } = useContext(PokemonContext);
   const navigate = useNavigate();
   const location = useLocation();
   const data = location.state?.data;
   const query = new URLSearchParams(location.search);
   const id = query.get("id");
+
+  const dispatch = useDispatch();
 
   return (
     <DetailLayout>
@@ -29,7 +30,7 @@ const Detail = () => {
       </CustomBtn>
       <CustomBtn
         onClick={() => {
-          addToMyCollection(data.id);
+          dispatch(addToMyCollection(data.id));
         }}
       >
         추가

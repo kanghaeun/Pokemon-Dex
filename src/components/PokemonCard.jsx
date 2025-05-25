@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { CustomBtn } from "./CustomBtn";
-import { PokemonContext } from "../context/PokemonContext";
+
+import {
+  addToMyCollection,
+  deleteFromMyCollection,
+} from "../redux/slices/pokemonSlice";
 
 const PokemonCard = ({ data, btnName }) => {
-  const { addToMyCollection, deleteToMyCollection } =
-    useContext(PokemonContext);
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -25,7 +28,7 @@ const PokemonCard = ({ data, btnName }) => {
           <CustomBtn
             onClick={(e) => {
               e.stopPropagation();
-              addToMyCollection(data.id);
+              dispatch(addToMyCollection(data.id));
             }}
           >
             {btnName}
@@ -34,7 +37,7 @@ const PokemonCard = ({ data, btnName }) => {
           <CustomBtn
             onClick={(e) => {
               e.stopPropagation();
-              deleteToMyCollection(data.id);
+              dispatch(deleteFromMyCollection(data.id));
             }}
           >
             {btnName}
